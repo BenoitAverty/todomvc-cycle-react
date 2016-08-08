@@ -1,0 +1,26 @@
+{
+  "name": "todomvc-cycle-react",
+  "version": "1.0.0",
+  "description": "Todo List example application written with cycleJS and the React Driver",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenoitAverty/todomvc-cycle-react.git"
+  },
+  "keywords": [
+    "cyclejs",
+    "reactjs",
+    "react",
+    "js",
+    "todomvc"
+  ],
+  "author": "Benoit Averty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BenoitAverty/todomvc-cycle-react/issues"
+  },
+  "homepage": "https://github.com/BenoitAverty/todomvc-cycle-react#readme"
+}
