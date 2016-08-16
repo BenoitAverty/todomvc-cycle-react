@@ -1,18 +1,36 @@
 import React from 'react';
+import Rx from 'rxjs';
 import { connect } from 'cycle-react-driver';
 
-const AppComponentInner = (props) => <h1 onClick={props.sendToCycle}>Counter: {props.count}</h1>;
+// import { TodoListComponent } from './todoList';
+import { FooterComponent } from './footer';
+
+const AppComponentInner = (props) => (
+  <div>
+    <header className="header">
+      <h1>todos</h1>
+      <input
+        className="new-todo"
+        placeholder="What needs to be done?"
+        onKeyDown={props.sendToCycle}
+        onChange={props.sendToCycle}
+        autoFocus
+      />
+    </header>
+    {/* <TodoListComponent /> */}
+    <FooterComponent />
+  </div>
+);
+
+
 AppComponentInner.propTypes = {
-  count: React.PropTypes.number,
   sendToCycle: React.PropTypes.func,
 };
 
-export const AppComponent = connect(['count'], 'sendToCycle')(AppComponentInner);
+export const AppComponent = connect()(AppComponentInner);
 
-export const AppMain = ({ react }) => ({
-  react: react.select(AppComponentInner)
-    .mapTo(1)
-    .scan((a, b) => a+b)
-    .startWith(1)
-    .map(c => ({ name: 'count', value: c })),
+export const AppMain = () => ({
+  react: Rx.Observable.of(
+    { name: 'todosCount', value: 0 }
+  ),
 });
